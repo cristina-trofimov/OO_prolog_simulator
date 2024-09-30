@@ -1,0 +1,12 @@
+state(Idle, null, null, null).
+state(Configuring, 'flash lights on', 'configure', 'confirm')
+state(active, null, null, null)
+state(exit, null, null, null)
+
+initial(idle)
+final(exit)
+
+transition(idle, configuring, input, null, null)
+transition(configuring, idle, cancel, null, null)
+transition(configuring, active, null, null, null)
+transition(active, exit, after(5min), null, null, null)
